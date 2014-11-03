@@ -1,0 +1,307 @@
+@import "compass/css3";
+@import "compass/typography";
+@import "compass/utilities/general/clearfix";
+@import "compass/reset";
+@import "compass/utilities/sprites";
+
+
+/* #Base
+================================================== */
+
+html, body {
+  background: #fff;
+  height: 100%;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+input, textarea {
+  @include box-shadow(none);
+  @include border-radius(0px);
+  -webkit-appearance: none;
+}
+b, strong {
+  font-weight: bold;
+}
+
+h1 {
+  color: #3c3c3b;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 18px;
+  line-height: normal;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 24px;
+}
+
+.container {
+  width: 940px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.lcol {
+  float: left;
+}
+
+.rcol {
+  float: right;
+}
+
+/* #Sprites
+================================================== */
+
+
+$icons: sprite-map("icons/*.png", $spacing: 5px, $layout: diagonal);
+.icon-arrow {
+  background-image: sprite-url($icons);
+  background-position: sprite-position($icons, arrow);
+  @include sprite-dimensions($icons, arrow);
+  display: inline-block;
+  vertical-align: middle;
+}
+.icon-back-arrow {
+  background-image: sprite-url($icons);
+  background-position: sprite-position($icons, back-arrow);
+  @include sprite-dimensions($icons, back-arrow);
+  display: inline-block;
+  line-height: 2;
+}
+
+
+/* #Head
+================================================== */
+
+#header {
+  .menu {
+    display: table;
+    white-space: nowrap;
+    width: 100%;
+    ul {
+      display: table-row;
+      li {
+
+        display: table-cell;
+        vertical-align: middle;
+        border-left: 2px solid #f6f6f6;
+        text-align: center;
+        min-height: 60px;
+        &.logo {
+          border-left: 0;
+          padding-right: 10px;
+          text-align: left;
+          a {
+            padding: 0;
+          }
+        }
+      }
+    }
+    a {
+      display: block;
+      padding: 18px 10px;
+      text-decoration: none;
+      color: #55a4f2;
+    }
+
+    .prof {
+      line-height: normal;
+      img {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 4px;
+      }
+      a {
+
+
+      }
+    }
+  }
+  .search {
+    width: 100%;
+    form {
+      margin: 0 10px;
+      position: relative;
+      input {
+        width: 100%;
+        height: 26px;
+        margin: 0;
+        padding: 0 100px 0 15px;
+        font-size: 14px;
+        outline: none;
+        border: 1px solid #eee;
+        border-radius: 20px;
+        background-color: #f5f5f5;
+        @include filter-gradient(#f5f5f5, #ffffff, vertical);
+        @include background-image(linear-gradient(top, #f5f5f5 0%,#fafafa 47%,#ffffff 100%));
+        @include box-sizing(border-box);
+        color: #666;
+      }
+      button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 75px;
+        height: 26px;
+        line-height: 26px;
+        padding: 0;
+        margin: 0;
+        font-size: 12px;
+        border: none;
+        border-radius: 0 20px 20px 0;
+        color: #fff;
+        outline: none;
+        background-color: #72b2f0;
+        @include filter-gradient(#72b2f0, #409cf2, vertical);
+        @include background-image(linear-gradient(top, #72b2f0 0%,#56a7f1 44%,#409cf2 100%));
+      }
+    }
+  }
+
+}
+
+/* #Head Menu
+================================================== */
+
+#menu {
+  background: #2e2e2e;
+  font-size: 15px;
+  margin-bottom: 38px;
+  ul {
+    margin: 10px 0 9px;
+    li {
+      text-align: center;
+      display: inline-block;
+
+    }
+  }
+  a {
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    display: block;
+    @include border-radius(6px);
+    border: 1px solid transparent;
+    &:hover {
+      background: #1d1d1b;
+      font-weight: bold;
+    }
+    &::after {
+      display: block;
+      content: attr(title);
+      font-weight: bold;
+      height: 1px;
+      color: transparent;
+      overflow: hidden;
+      visibility: hidden;
+    }
+  }
+  .menu-back {
+    a {
+      border: 1px solid #fff;
+      &:hover {
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+/* #Content
+================================================== */
+
+#content {
+  .vsep {
+    padding-right: 480px;
+  }
+  color: #3c3c3b;
+  a {
+    color: #00aef4;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .main {
+    line-height: 24px;
+    float: left;
+    width: 100%;
+    p {
+      margin-bottom: 30px;
+    }
+
+  }
+
+  .sidebar {
+    p {
+      line-height: 24px;
+    }
+    width: 380px;
+    margin-right: -480px;
+    //    float: right;
+    h3 {
+      margin-bottom: 14px;
+    }
+    .profile-box {
+      padding: 20px;
+      border: 1px solid #dadada;
+      margin-bottom: 20px;
+    }
+    .profile-img {
+      width: 100px;
+
+    }
+    .profile-info {
+      margin-left: 120px;
+    }
+    .profile-name {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 24px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+
+/* #Clearing
+================================================== */
+
+.container:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
